@@ -1,9 +1,11 @@
 package com.springjobapp.springjobapp.Job.Services.impl;
 
+import com.springjobapp.springjobapp.Job.Models.Company;
 import com.springjobapp.springjobapp.Job.Models.Job;
 import com.springjobapp.springjobapp.Job.Repository.JobRepository;
 import com.springjobapp.springjobapp.Job.Services.JobService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
