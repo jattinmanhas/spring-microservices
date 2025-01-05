@@ -1,8 +1,11 @@
 package com.springjobapp.jobms.DTO;
 
 import com.springjobapp.jobms.External.Company;
+import com.springjobapp.jobms.External.Review;
 
-public class JobWithCompanyDTO {
+import java.util.List;
+
+public class JobDTO {
     private Long id;
     private String title;
     private String description;
@@ -10,6 +13,7 @@ public class JobWithCompanyDTO {
     private String maxSalary;
     private String location;
     private Company company;
+    private List<Review> reviews;
 
     public Long getId() {
         return id;
@@ -65,5 +69,13 @@ public class JobWithCompanyDTO {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> review) {
+        this.reviews = review;
     }
 }

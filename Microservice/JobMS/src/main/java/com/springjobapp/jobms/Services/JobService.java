@@ -1,16 +1,16 @@
 package com.springjobapp.jobms.Services;
 
 
-import com.springjobapp.jobms.DTO.JobWithCompanyDTO;
+import com.springjobapp.jobms.DTO.JobDTO;
 import com.springjobapp.jobms.Models.Job;
 
 import java.util.List;
 
 public interface JobService {
-    List<JobWithCompanyDTO> findAll();
+    List<JobDTO> findAll();
     void createJob(Job job);
 
-    JobWithCompanyDTO getJobById(Long id);
+    JobDTO getJobById(Long id);
 
     boolean removeJobById(Long id);
 
