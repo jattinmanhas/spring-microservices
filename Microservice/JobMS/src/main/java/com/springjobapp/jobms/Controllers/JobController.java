@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/jobs")
 public class JobController {
     private JobService jobService;
 
@@ -19,19 +20,19 @@ public class JobController {
         this.jobService = jobService;
     }
 
-    @GetMapping("/jobs")
-    public ResponseEntity<List<JobDTO>> findAll(){
+    @GetMapping
+    public ResponseEntity<List<JobDTO>> findAllJobs(){
         return new ResponseEntity<>(jobService.findAll(), HttpStatus.OK);
     }
 
-    @PostMapping("/jobs")
+    @PostMapping
     public ResponseEntity<String> createJob(@RequestBody Job job){
         System.out.println(job.toString());
         jobService.createJob(job);
         return new ResponseEntity<>("Job saved successfully", HttpStatus.CREATED);
     }
 
-    @GetMapping("/job/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<JobDTO> getJobById(@PathVariable Long id){
         JobDTO job = jobService.getJobById(id);
         if(job == null){
@@ -41,7 +42,7 @@ public class JobController {
         return new ResponseEntity<>(job, HttpStatus.OK);
     }
 
-    @DeleteMapping("/job/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteJob(@PathVariable Long id){
         boolean removed = jobService.removeJobById(id);
 
@@ -52,7 +53,7 @@ public class JobController {
         return new ResponseEntity<>("Job deleted successfully", HttpStatus.OK);
     }
 
-    @PutMapping("/job/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<String> updateJob(@PathVariable Long id, @RequestBody Job job){
         boolean updatedJob = jobService.updateJobById(id, job);
 
