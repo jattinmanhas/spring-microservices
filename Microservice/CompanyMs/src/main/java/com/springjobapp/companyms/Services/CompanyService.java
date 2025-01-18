@@ -1,5 +1,6 @@
 package com.springjobapp.companyms.Services;
 
+import com.springjobapp.companyms.DTO.ReviewMessage;
 import com.springjobapp.companyms.Models.Company;
 
 import java.util.List;
@@ -10,4 +11,5 @@ public interface CompanyService {
     void createCompany(Company company);
     boolean removeCompanyById(Long id);
     Company getCompanyById(Long id);
+    public void updateCompanyRating(ReviewMessage reviewMessage);
 }
